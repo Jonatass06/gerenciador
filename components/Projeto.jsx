@@ -1,39 +1,28 @@
+import { useState } from "react"
 import Grafico from "./Grafico"
+import Grupos from "./Grupos"
 
 export default function Projeto(props){
+    const [emCima, setEmCima] = useState(false);
 
     return (
-        <div className="flex flex-col  h-[322px]">
-            <div className="flex gap-2">
+        <div className="flex flex-col p-6 shadow-pre bg-white m-6 rounded-[5px] w-[340px]"  
+        onMouseEnter={() =>{setEmCima(true)}} onMouseLeave={() =>{setEmCima(false)}} >
+            <div className="flex gap-2 flex-1 items-center">
                 <div className="bg-zinc-200 h-14 w-14 rounded-[5px]"></div>
-                <div>
-                    <h6>{props.nome}</h6>
-                    <p>{props.descricao}</p>
+                <div className="h-14 flex flex-col justify-center gap-3">
+                    <h6 className="text-[16px] text-zinc-900 h-min leading-[0px]">{props.nome}</h6>
+                    <p className="text-[10px] text-zinc-900">{props.descricao}</p>
                 </div>
             </div>
-            <div>
-                <div className="flex relative h-24 w-full justify-center pt-8">
-
-                {
-                    props.grupos.length >4 ?
-                        props.grupos.map(grupo => {
-                            if(props.grupos.indexOf(grupo) == props.grupos.length - 1){
-                                return <div key={props.grupos.length - 1} className=" ml-[-10px] rounded-full w-8 h-8 bg-pink-500 text-white flex shadow-sm shadow-zinc-600 items-center justify-center" > + </div>
-                            }
-                            if(props.grupos.indexOf(grupo) > 4){
-                            } else{
-                                return <div key={props.grupos.indexOf(grupo)} className=" ml-[-10px] rounded-full w-8 h-8 bg-pink-500  shadow-sm shadow-zinc-600 " title={grupo}></div>
-                            }
-                        }) :
-                        props.grupos.map(grupo => {
-                            return <div key={props.grupos.indexOf(grupo)} className=" ml-[-10px]  rounded-full w-8 h-8 bg-pink-500 shadow-sm shadow-zinc-600" title={grupo}></div>
-                        })
-                
-                }
-                </div>
+            {
+                emCima &&            
+                <div className="flex flex-col justify-center items-center w-full gap-6">
+                <Grupos grupos={props.grupos}></Grupos>
                 <Grafico porcentagem={props.porcentagem}></Grafico>
-
             </div>
+            }
+
 
         </div>
     )
