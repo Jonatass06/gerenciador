@@ -2,44 +2,46 @@
 import projetos from "@/data/projetos";
 import Header from "../components/Header";
 import Projeto from "@/components/Projeto";
+import tarefas from "@/data/tarefas-do-dia";
+import Tarefa from "@/components/Tarefa";
+import SVGPaginaInicial from "@/components/SVGPaginaInicial";
 
 
 export default function Home() {
 
-  let primary ="#EF4996" ;
-  let secondary = "#FE7A08";
-
   return (
     <div className="bg-white w-screen h-screen">
-      <svg xmlns="http://www.w3.org/2000/svg" width="1900" height="930" viewBox="0 0 1900 930" fill="none" className='fixed z-[998]'>
-        <path d="M1279.23 -532.274L1899.12 51.0295L1844.44 316.431C1834.84 363.028 1820.63 408.557 1802.03 452.347L1734.52 611.264C1709.8 669.473 1664.73 716.69 1607.73 744.099C1547.17 773.223 1500.21 824.639 1476.69 887.59L1440.49 984.467C1414.26 1054.66 1364.36 1113.51 1299.4 1150.87C1260.33 1173.34 1226.41 1203.76 1199.84 1240.17L811.38 1772.47L434.952 1597.72C258.302 1515.71 109.444 1383.9 6.6538 1218.48L-108.14 1033.74L98.4043 1054.87C181.924 1063.42 264.253 1030.04 318.246 965.751C344.915 933.997 378.97 909.272 417.422 893.746L471.486 871.917C623.399 810.579 734.331 677.018 766.744 516.427L780.65 447.53L795.943 332.823C815.241 188.066 891.691 57.0618 1008.23 -30.9492C1094.98 -96.4621 1160.21 -186.364 1195.58 -289.155L1279.23 -532.274Z" fill="url(#paint0_linear_1020_10332)"/>
-        <defs>
-          <linearGradient id="paint0_linear_1020_10332" x1="2038.26" y1="197.085" x2="-662.773" y2="-191.676" gradientUnits="userSpaceOnUse">
-            <stop offset="0.0208333" stop-color={primary}/>
-            <stop offset="0.304639" stop-color="#F04FB0"/>
-            <stop offset="0.947917" stop-color={secondary}/>
-          </linearGradient>
-        </defs>
-      </svg>
+      <SVGPaginaInicial></SVGPaginaInicial>
       <div className='fundo h-screen w-screen fixed z-[999] justify-center'>
-          <Header></Header>
-          <div className='text-center'>Pagina Inicial</div>
-          <div className='flex'>
-            <div>
-                <div className=" bg-pink-500 w-[340px] h-[94px] rounded-[8px] flex justify-center items-center text-[24px] text-white"> PROJETOS </div>
-                <div className=" overflow-auto h-[684px]">
-              {projetos.map(projeto => {
-                  return <Projeto nome={projeto.nome} descricao ={projeto.descricao} grupos={projeto.grupos} 
-                  porcentagem={projeto.porcentagem} key={projetos.indexOf(projeto)}></Projeto>
-                })}
-
-                </div>
-
+        <Header setPrimary={(v => { setPrimary(v) })} setSecondary={(v => { setSecondary(v) })}></Header>
+        <div className="w-screen flex justify-center mt-10 mb-4">
+          <h1 className="ml-4 text-pink-600 w-[1200px] text-start">Pagina Inicial</h1>
+        </div>
+        <div className='flex items-center justify-center'>
+          <div className="flex flex-col items-start justify-center gap-6 h-[680px]">
+            <div className=" ml-[22px] bg-pink-500 w-[343px] h-[94px] rounded-[8px] flex 
+            justify-center items-center text-[24px] text-white font-alata">
+              PROJETOS
             </div>
-            <div>
-              
+            <div className="overflow-y-scroll w-max h-[570px]">
+              {projetos.map(projeto => {
+                return <Projeto nome={projeto.nome} descricao={projeto.descricao} grupos={projeto.grupos}
+                  porcentagem={projeto.porcentagem} key={projetos.indexOf(projeto)}></Projeto>
+              })}
             </div>
           </div>
+          <div className="bg-white h-[684px] w-[836px] flex flex-col items-center 
+          justify-center gap-12 rounded-[5px] shadow-pre">
+            <h5 className=" text-pink-600">Tarefas de Hoje</h5>
+            <div className="hover:overflow-y-auto overflow-clip w-[655px] 
+            h-[500px] flex flex-wrap gap-6 p-1">
+              {tarefas.map(tarefa => {
+                return <Tarefa nome={tarefa.nome} descricao={tarefa.descricao} 
+                usuarios={tarefa.usuarios} key={tarefas.indexOf(tarefa)}></Tarefa>
+              })}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
