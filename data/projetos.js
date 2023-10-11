@@ -87,6 +87,168 @@ const projetos = [
       { nome: "Grupo 2", foto: "" },
     ],
   },
+  {
+    nome: "Projeto G",
+    descricao: "Descrevendo o projeto G brevemente",
+    porcentagem: 5,
+    grupos: [
+      { nome: "Grupo 1", foto: "" },
+      { nome: "Grupo 2", foto: "" },
+    ],
+  },
+  {
+    nome: "Projeto G",
+    descricao: "Descrevendo o projeto G brevemente",
+    porcentagem: 5,
+    grupos: [
+      { nome: "Grupo 1", foto: "" },
+      { nome: "Grupo 2", foto: "" },
+    ],
+  },
+  {
+    nome: "Projeto G",
+    descricao: "Descrevendo o projeto G brevemente",
+    porcentagem: 5,
+    grupos: [
+      { nome: "Grupo 1", foto: "" },
+      { nome: "Grupo 2", foto: "" },
+    ],
+  },
+  {
+    nome: "Projeto G",
+    descricao: "Descrevendo o projeto G brevemente",
+    porcentagem: 5,
+    grupos: [
+      { nome: "Grupo 1", foto: "" },
+      { nome: "Grupo 2", foto: "" },
+    ],
+  },
+  {
+    nome: "Projeto G",
+    descricao: "Descrevendo o projeto G brevemente",
+    porcentagem: 5,
+    grupos: [
+      { nome: "Grupo 1", foto: "" },
+      { nome: "Grupo 2", foto: "" },
+    ],
+  },
+  {
+    nome: "Projeto G",
+    descricao: "Descrevendo o projeto G brevemente",
+    porcentagem: 5,
+    grupos: [
+      { nome: "Grupo 1", foto: "" },
+      { nome: "Grupo 2", foto: "" },
+    ],
+  },
+  {
+    nome: "Projeto G",
+    descricao: "Descrevendo o projeto G brevemente",
+    porcentagem: 5,
+    grupos: [
+      { nome: "Grupo 1", foto: "" },
+      { nome: "Grupo 2", foto: "" },
+    ],
+  },
+  {
+    nome: "Projeto G",
+    descricao: "Descrevendo o projeto G brevemente",
+    porcentagem: 5,
+    grupos: [
+      { nome: "Grupo 1", foto: "" },
+      { nome: "Grupo 2", foto: "" },
+    ],
+  },
+  {
+    nome: "Projeto G",
+    descricao: "Descrevendo o projeto G brevemente",
+    porcentagem: 5,
+    grupos: [
+      { nome: "Grupo 1", foto: "" },
+      { nome: "Grupo 2", foto: "" },
+    ],
+  },
+  {
+    nome: "Projeto G",
+    descricao: "Descrevendo o projeto G brevemente",
+    porcentagem: 5,
+    grupos: [
+      { nome: "Grupo 1", foto: "" },
+      { nome: "Grupo 2", foto: "" },
+    ],
+  },
+  {
+    nome: "Projeto G",
+    descricao: "Descrevendo o projeto G brevemente",
+    porcentagem: 5,
+    grupos: [
+      { nome: "Grupo 1", foto: "" },
+      { nome: "Grupo 2", foto: "" },
+    ],
+  },
+  {
+    nome: "Projeto G",
+    descricao: "Descrevendo o projeto G brevemente",
+    porcentagem: 5,
+    grupos: [
+      { nome: "Grupo 1", foto: "" },
+      { nome: "Grupo 2", foto: "" },
+    ],
+  },
+  {
+    nome: "Projeto G",
+    descricao: "Descrevendo o projeto G brevemente",
+    porcentagem: 5,
+    grupos: [
+      { nome: "Grupo 1", foto: "" },
+      { nome: "Grupo 2", foto: "" },
+    ],
+  },
+  {
+    nome: "Projeto G",
+    descricao: "Descrevendo o projeto G brevemente",
+    porcentagem: 5,
+    grupos: [
+      { nome: "Grupo 1", foto: "" },
+      { nome: "Grupo 2", foto: "" },
+    ],
+  },
+  {
+    nome: "Projeto G",
+    descricao: "Descrevendo o projeto G brevemente",
+    porcentagem: 5,
+    grupos: [
+      { nome: "Grupo 1", foto: "" },
+      { nome: "Grupo 2", foto: "" },
+    ],
+  },
+  {
+    nome: "Projeto G",
+    descricao: "Descrevendo o projeto G brevemente",
+    porcentagem: 5,
+    grupos: [
+      { nome: "Grupo 1", foto: "" },
+      { nome: "Grupo 2", foto: "" },
+    ],
+  },
+  {
+    nome: "Projeto G",
+    descricao: "Descrevendo o projeto G brevemente",
+    porcentagem: 5,
+    grupos: [
+      { nome: "Grupo 1", foto: "" },
+      { nome: "Grupo 2", foto: "" },
+    ],
+  },
+  {
+    nome: "Projeto G",
+    descricao: "Descrevendo o projeto G brevemente",
+    porcentagem: 5,
+    grupos: [
+      { nome: "Grupo 1", foto: "" },
+      { nome: "Grupo 2", foto: "" },
+    ],
+  },
 ];
 
 export default projetos;

@@ -6,7 +6,7 @@ export default function Projeto(props){
     const [emCima, setEmCima] = useState(false);
 
     return (
-        <div className="flex flex-col p-6 shadow-pre m-5 mt-1 bg-white rounded-[5px] w-[340px] "  
+        <div className="flex flex-col p-6 shadow-pre m-5 mt-1 h-min bg-white rounded-[5px] w-[340px] "  
         onMouseEnter={() =>{setEmCima(true)}} onMouseLeave={() =>{setEmCima(false)}} >
             <div className="flex gap-2 flex-1 items-center">
                 <div className="bg-zinc-200 h-14 w-14 rounded-[5px]"></div>
