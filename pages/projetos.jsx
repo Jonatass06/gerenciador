@@ -2,10 +2,7 @@
 import projetos from "@/data/projetos";
 import Header from "../components/Header";
 import Projeto from "@/components/Projeto";
-import tarefas from "@/data/tarefas-do-dia";
-import Tarefa from "@/components/Tarefa";
 import SVGPaginaProjetos from "@/components/SVGPaginaProjetos";
-import Pesquisa from "@/components/Pesquisa";
 import BarraSuperior from "@/components/BarraSuperior";
 
 
@@ -17,14 +14,32 @@ export default function Home() {
       <div className='fundo h-screen w-screen fixed z-[999] justify-center'>
         <Header setPrimary={(v => { setPrimary(v) })} setSecondary={(v => { setSecondary(v) })}></Header>
         <div className="w-screen flex justify-center">
-          <BarraSuperior adicionar pesquisar titulo={"Meus Projetos"}></BarraSuperior>
+          <BarraSuperior largura={1100} adicionar ordenar pesquisar titulo={"Meus Projetos"}></BarraSuperior>
           </div>
         <div className='flex items-center justify-center'>
-          <div className="flex flex-col items-start justify-start gap-6 h-[680px]">
-            <div className="overflow-y-scroll w-[1140px] flex-wrap flex max-h-[660px]">
+          <div className="flex items-start justify-start h-[680px] overflow-y-scroll">
+            <div >
               {projetos.map(projeto => {
-                return <Projeto nome={projeto.nome} descricao={projeto.descricao} grupos={projeto.grupos}
+                if(projetos.indexOf(projeto)%3==0){
+                  return <Projeto nome={projeto.nome} descricao={projeto.descricao} grupos={projeto.grupos}
+                    porcentagem={projeto.porcentagem} key={projetos.indexOf(projeto)}></Projeto>
+                }
+              })}
+            </div>
+            <div>
+              {projetos.map(projeto => {
+                if((projetos.indexOf(projeto)-1)%3==0 ){
+                  return <Projeto nome={projeto.nome} descricao={projeto.descricao} grupos={projeto.grupos}
                   porcentagem={projeto.porcentagem} key={projetos.indexOf(projeto)}></Projeto>
+                }
+              })}
+            </div>
+            <div>
+              {projetos.map(projeto => {
+                if((projetos.indexOf(projeto)-2)%3 == 0){
+                  return <Projeto nome={projeto.nome} descricao={projeto.descricao} grupos={projeto.grupos}
+                  porcentagem={projeto.porcentagem} key={projetos.indexOf(projeto)}></Projeto>
+                }
               })}
             </div>
           </div>
