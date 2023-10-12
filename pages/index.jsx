@@ -19,10 +19,10 @@ export default function Home() {
         <div className="w-screen flex justify-center">
           <BarraSuperior titulo="Pagina Inicial" largura={1185}></BarraSuperior>
         </div>
-        <div className='flex items-center justify-center'>
+        <div className='flex items-center gap-3 justify-center'>
           <div className="flex flex-col items-center justify-center gap-6 h-[680px]">
             <Link href="/projetos" >
-            <div className=" bg-pink-500 w-[343px] h-[94px] rounded-[8px] flex 
+            <div className=" bg-pink w-[343px] h-[94px] rounded-[8px] flex 
             justify-center items-center text-[24px] text-white font-alata">
               PROJETOS
             </div>
@@ -34,11 +34,10 @@ export default function Home() {
               })}
             </div>
           </div>
-          <div className="bg-white h-[684px] w-[836px] flex flex-col items-center 
-          justify-center gap-12 rounded-[5px] shadow-pre">
-            <h5 className=" text-pink-600">Tarefas de Hoje</h5>
-            <div className="hover:overflow-y-auto overflow-clip w-[655px] 
-            h-[500px] flex flex-wrap gap-6 p-1">
+          <div className="bg-white h-[684px] w-[836px] flex flex-col items-center rounded-[1px] shadow-pre">
+            <h5 className=" text-pink my-8">Tarefas de Hoje</h5>
+            <div className="overflow-y-auto overflow-clip w-[655px] 
+            h-[525px] flex flex-wrap gap-3 gap-x-5 p-1 justify-center">
               {tarefas.map(tarefa => {
                 return <Tarefa nome={tarefa.nome} descricao={tarefa.descricao} 
                 usuarios={tarefa.usuarios} key={tarefas.indexOf(tarefa)}></Tarefa>

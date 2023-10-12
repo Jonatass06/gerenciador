@@ -1,5 +1,5 @@
 export default function Fotos(props) {
-    const estilo = " ml-[-15px] rounded-full w-8 h-8 bg-pink-500 text-white overflow-clip flex shadow-sm shadow-zinc-600 items-center justify-center"
+    const estilo = " ml-[-15px] rounded-full w-8 h-8 bg-pink text-white overflow-clip flex shadow-sm shadow-zinc-600 items-center justify-center"
 
     return (
         <div className="flex relativ justify-end ml-[15px]">
