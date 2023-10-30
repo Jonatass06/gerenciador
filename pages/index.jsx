@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <div className="bg-white w-screen h-screen">
       <SVGPaginaInicial></SVGPaginaInicial>
-      <div className='fundo h-screen w-screen fixed z-[999] justify-center'>
+      <div className='fundo h-screen w-screen relative z-[999] justify-center'>
         <Header setPrimary={(v => { setPrimary(v) })} setSecondary={(v => { setSecondary(v) })}></Header>
         <div className="w-screen flex justify-center">
           <BarraSuperior titulo="Pagina Inicial" largura={1185}></BarraSuperior>
