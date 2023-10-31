@@ -1,67 +1,95 @@
+
+import Header from "@/components/Header";
 import { useEffect, useRef, useState } from "react";
-
+import { Line, Layer, Stage } from "react-konva";
 export default function canvas() {
-
-
-  let color = "black"
-
-  const canvasRef = useRef(null);
-  let canvas = null;
-  let context = null;
-  let drawing = false;
+  const [tool, setTool] = useState('pen');
+  const [lines, setLines] = useState([]);
+  const isDrawing = useRef(false);
+  const [w, setW] = useState(500)
+  const [h, setH] = useState(500)
 
   useEffect(() => {
-    canvas = canvasRef.current;
-    context = canvas.getContext('2d');
+    mudarTamanho()
+    window.addEventListener("resize", () => mudarTamanho())
+  }, [])
 
-    // Define o size do canvas
-    canvas.width = screen.width;
-    canvas.height = screen.height;
-
-    // Configurações iniciais do contexto de desenho
-    context.strokeStyle = color;
-    context.lineWidth = 1;
-    context.lineCap = 'round';
-  }, []);
-
-
-  const startDrawing = (e) => {
-    drawing = true;
-    const context = canvasRef.current.getContext('2d');
-    context.beginPath();
-    context.moveTo(e.clientX, e.clientY);
+  function mudarTamanho() {
+    setW(window.innerWidth)
+    setH((window.innerHeight) - 55)
   }
 
-  const endDrawing = () => {
-    drawing = false;
-    const context = canvasRef.current.getContext('2d');
-    context.closePath();
-  }
 
-  const draw = (e) => {
-    if (!drawing) return;
-    const context = canvasRef.current.getContext('2d');
-    context.lineTo(e.clientX, e.clientY);
-    context.stroke();
-  }
+  const handleMouseDown = (e) => {
+    isDrawing.current = true;
+    const pos = e.target.getStage().getPointerPosition();
+    setLines([...lines, { tool, points: [pos.x, pos.y] }]);
+  };
+
+  const handleMouseMove = (e) => {
+    // no drawing - skipping
+    if (!isDrawing.current) {
+      return;
+    }
+    const stage = e.target.getStage();
+    const point = stage.getPointerPosition();
+    let lastLine = lines[lines.length - 1];
+    // add point
+    lastLine.points = lastLine.points.concat([point.x, point.y]);
+
+    // replace last
+    lines.splice(lines.length - 1, 1, lastLine);
+    setLines(lines.concat());
+  };
+
+  const handleMouseUp = () => {
+    isDrawing.current = false;
+  };
 
   return (
-    <div className="w-screen h-screen bg-white">
-      <canvas
-        ref={canvasRef}
-        onMouseDown={startDrawing}
-        onMouseUp={endDrawing}
-        onMouseOut={endDrawing}
-        onMouseMove={draw}
-      />
-      <div className="absolute top-0 right-0">
-        <input type="color" defaultValue={color} onChange={e => {
-          color = e.target.value
-          context.strokeStyle = color
-        }} />
-        <input type="number" defaultValue={1} onChange={e => context.lineWidth = e.target.value} />
-        <button onClick={() => context.strokeStyle = context.strokeStyle == color ? "#FCFCFC" : color}>Trocar</button>
+    <div >
+      <Header />
+      <div className="relative">
+        <Stage
+          width={w}
+          height={h}
+          onMouseDown={handleMouseDown}
+          onMousemove={handleMouseMove}
+          onMouseup={handleMouseUp}
+        >
+          <Layer>
+            {lines.map((line, i) => (
+              <Line
+                key={i}
+                points={line.points}
+                stroke="#df4b26"
+                strokeWidth={5}
+                tension={0.5}
+                lineCap="round"
+                lineJoin="round"
+                globalCompositeOperation={
+                  line.tool === 'eraser' ? 'destination-out' : 'source-over'
+                }
+              />
+            ))}
+          </Layer>
+        </Stage>
+        <div className="absolute top-0 right-0">
+          <select
+            value={tool}
+            onChange={(e) => {
+              setTool(e.target.value);
+            }}
+          >
+            <option value="pen">Pen</option>
+            <option value="eraser">Eraser</option>
+          </select>
+
+        </div>
+
       </div>
+
     </div>
   );
-}
+};
+
