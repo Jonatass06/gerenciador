@@ -11,7 +11,9 @@ export default function canvas() {
 
   useEffect(() => {
     mudarTamanho()
-    window.addEventListener("resize", () => mudarTamanho())
+    if (typeof window !== 'undefined') {
+      window.addEventListener("resize", mudarTamanho);
+    }
   }, [])
 
   function mudarTamanho() {
